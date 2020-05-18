@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA3592992472270B00FE590F /* AssetRead.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3592982472270B00FE590F /* AssetRead.swift */; };
+		BA35929B2472271F00FE590F /* AssetWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA35929A2472271F00FE590F /* AssetWrite.swift */; };
+		BA35929D2472653600FE590F /* AssetExportSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA35929C2472653600FE590F /* AssetExportSession.swift */; };
+		BA35929F24727C8400FE590F /* o1589009287_5188_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = BA35929E24727C8400FE590F /* o1589009287_5188_1.mp4 */; };
+		BA3592A324728F0400FE590F /* SDAVAssetExportSession.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3592A224728F0400FE590F /* SDAVAssetExportSession.m */; };
 		BA71183F246CF09E007C8B1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71183E246CF09E007C8B1A /* AppDelegate.swift */; };
 		BA711841246CF09E007C8B1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA711840246CF09E007C8B1A /* SceneDelegate.swift */; };
 		BA711843246CF09E007C8B1A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA711842246CF09E007C8B1A /* ViewController.swift */; };
@@ -37,6 +42,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA3592982472270B00FE590F /* AssetRead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetRead.swift; sourceTree = "<group>"; };
+		BA35929A2472271F00FE590F /* AssetWrite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetWrite.swift; sourceTree = "<group>"; };
+		BA35929C2472653600FE590F /* AssetExportSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetExportSession.swift; sourceTree = "<group>"; };
+		BA35929E24727C8400FE590F /* o1589009287_5188_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = o1589009287_5188_1.mp4; sourceTree = "<group>"; };
+		BA3592A024728F0300FE590F /* VideoEdit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VideoEdit-Bridging-Header.h"; sourceTree = "<group>"; };
+		BA3592A124728F0400FE590F /* SDAVAssetExportSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAVAssetExportSession.h; sourceTree = "<group>"; };
+		BA3592A224728F0400FE590F /* SDAVAssetExportSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDAVAssetExportSession.m; sourceTree = "<group>"; };
 		BA71183B246CF09E007C8B1A /* VideoEdit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoEdit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA71183E246CF09E007C8B1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA711840246CF09E007C8B1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,15 +115,22 @@
 		BA71183D246CF09E007C8B1A /* VideoEdit */ = {
 			isa = PBXGroup;
 			children = (
+				BA3592A124728F0400FE590F /* SDAVAssetExportSession.h */,
+				BA3592A224728F0400FE590F /* SDAVAssetExportSession.m */,
 				BA71183E246CF09E007C8B1A /* AppDelegate.swift */,
 				BA711840246CF09E007C8B1A /* SceneDelegate.swift */,
 				BA711842246CF09E007C8B1A /* ViewController.swift */,
 				BA71186E246CF143007C8B1A /* VideoEdit.swift */,
+				BA3592982472270B00FE590F /* AssetRead.swift */,
+				BA35929A2472271F00FE590F /* AssetWrite.swift */,
+				BA35929C2472653600FE590F /* AssetExportSession.swift */,
 				BA712103246FB74D007C8B1A /* VideoCompress.swift */,
 				BA711844246CF09E007C8B1A /* Main.storyboard */,
 				BA711847246CF0A2007C8B1A /* Assets.xcassets */,
 				BA711849246CF0A2007C8B1A /* LaunchScreen.storyboard */,
 				BA71184C246CF0A2007C8B1A /* Info.plist */,
+				BA35929E24727C8400FE590F /* o1589009287_5188_1.mp4 */,
+				BA3592A024728F0300FE590F /* VideoEdit-Bridging-Header.h */,
 			);
 			path = VideoEdit;
 			sourceTree = "<group>";
@@ -202,6 +221,7 @@
 				TargetAttributes = {
 					BA71183A246CF09E007C8B1A = {
 						CreatedOnToolsVersion = 11.4.1;
+						LastSwiftMigration = 1140;
 					};
 					BA711850246CF0A2007C8B1A = {
 						CreatedOnToolsVersion = 11.4.1;
@@ -240,6 +260,7 @@
 			files = (
 				BA71184B246CF0A2007C8B1A /* LaunchScreen.storyboard in Resources */,
 				BA711848246CF0A2007C8B1A /* Assets.xcassets in Resources */,
+				BA35929F24727C8400FE590F /* o1589009287_5188_1.mp4 in Resources */,
 				BA711846246CF09E007C8B1A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,9 +287,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA711843246CF09E007C8B1A /* ViewController.swift in Sources */,
+				BA35929D2472653600FE590F /* AssetExportSession.swift in Sources */,
 				BA71183F246CF09E007C8B1A /* AppDelegate.swift in Sources */,
 				BA712104246FB74D007C8B1A /* VideoCompress.swift in Sources */,
+				BA35929B2472271F00FE590F /* AssetWrite.swift in Sources */,
 				BA711841246CF09E007C8B1A /* SceneDelegate.swift in Sources */,
+				BA3592992472270B00FE590F /* AssetRead.swift in Sources */,
+				BA3592A324728F0400FE590F /* SDAVAssetExportSession.m in Sources */,
 				BA71186F246CF143007C8B1A /* VideoEdit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,7 +467,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R2G5G5JFUM;
 				INFOPLIST_FILE = VideoEdit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,6 +477,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wego.TestImageDrawSize.VideoEdit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VideoEdit/VideoEdit-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -459,7 +488,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R2G5G5JFUM;
 				INFOPLIST_FILE = VideoEdit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -467,6 +498,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wego.TestImageDrawSize.VideoEdit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VideoEdit/VideoEdit-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
