@@ -32,7 +32,7 @@ class AssetExportSession: NSObject {
         self.asset = asset
         self.timeRange = CMTimeRange.init(start: .zero, duration: self.asset.duration)
         self.reader = AssetRead.init(asset: self.asset, timeRange: CMTimeRange.init(start: .zero, end: self.asset.duration), videoComposition: nil, videoSettings: videoSettings)
-        self.writer = AssetWrite.init(asset: self.asset, videoSettings: videoSettings, audioSettings: audioSettings, outPutFile: outputFile)
+        self.writer = AssetWrite.init(videoSettings: videoSettings, audioSettings: audioSettings, outPutFile: outputFile)
         super.init()
     }
     

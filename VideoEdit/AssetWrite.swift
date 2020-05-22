@@ -12,7 +12,6 @@ import AVFoundation
 class AssetWrite: NSObject {
     
     //MARK: -- porps
-    let asset: AVAsset!
     var duration: Float64 = 0
     let outPutFile: String!
     var videoSettings: [String: Any]?
@@ -23,11 +22,9 @@ class AssetWrite: NSObject {
     var audioInput: AVAssetWriterInput?
     
     //MARK: -- init
-    init(asset: AVAsset,
-         videoSettings: [String: Any]?,
-         audioSettings:[String: Any],
+    init(videoSettings: [String: Any]?,
+         audioSettings:[String: Any]?,
          outPutFile: String) {
-        self.asset = asset
         self.videoSettings = videoSettings
         self.outPutFile = outPutFile
         self.audioSettings = audioSettings
@@ -57,6 +54,18 @@ class AssetWrite: NSObject {
             "IOSurfaceOpenGLESTextureCompatibility":true,
             "IOSurfaceOpenGLESFBOCompatibility": true] as [AnyHashable : Any]
         self.videoPixelBufferAdaptor = AVAssetWriterInputPixelBufferAdaptor.init(assetWriterInput: self.videoInput!, sourcePixelBufferAttributes: pixelBufferAttributes as? [String : Any])
+    }
+    
+    func configPixelBufferAdaptor(by settings:[String: Any]) -> Void {
+        let width = settings[AVVideoWidthKey] as? Int
+        let height = settings[AVVideoHeightKey] as? Int
+        let pixelBufferAttributes = [
+            kCVPixelBufferPixelFormatTypeKey: kCVPixelFormatType_32BGRA,
+            kCVPixelBufferWidthKey: width ?? 0,
+            kCVPixelBufferHeightKey: height ?? 0,
+            "IOSurfaceOpenGLESTextureCompatibility":true,
+            "IOSurfaceOpenGLESFBOCompatibility": true] as [AnyHashable : Any]
+        self.videoPixelBufferAdaptor = AVAssetWriterInputPixelBufferAdaptor.init(assetWriterInput: self.videoInput!, sourcePixelBufferAttributes: pixelBufferAttributes as? [String: Any])
     }
     
     func addAuidoInput() -> Void {

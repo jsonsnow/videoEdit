@@ -12,6 +12,7 @@ import AVFoundation
 class ViewController: UIViewController {
 
     let btn: UIButton = UIButton.init(type: .custom)
+    let generateBtn: UIButton = UIButton.init(type: .custom)
     var export: AssetExportSession?
     var saExports: SDAVAssetExportSession?
     
@@ -21,7 +22,27 @@ class ViewController: UIViewController {
         btn.backgroundColor = .red
         btn.addTarget(self, action: #selector(clickExprostSession), for: .touchUpInside)
         view.addSubview(btn)
+        
+        generateBtn.frame = btn.frame.offsetBy(dx: 0, dy: btn.frame.size.height + 30)
+        generateBtn.backgroundColor = .red
+        generateBtn.addTarget(self, action: #selector(clickGenerat), for: .touchUpInside)
+        view.addSubview(generateBtn)
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func clickGenerat() {
+        let time = Int64(Date.init().timeIntervalSince1970 * 1000)
+        var output = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true).first ?? ""
+        output = output + "/\(time)_output.mp4"
+        let target = URL.init(fileURLWithPath: output)
+        let imageOne = Bundle.main.path(forResource: "i1589683249_5974_8", ofType: "jpg")!
+        let imageTwo = Bundle.main.path(forResource: "1", ofType: "jpg")!
+        let images = [UIImage.init(named: imageOne)!, UIImage.init(named: imageTwo)!]
+        let imageTrack = ImageTrack.init(images: images, frame: 10, settings: [AVVideoWidthKey: 680, AVVideoHeightKey: 680], outputFile: target.absoluteString)
+        imageTrack.generateTrak {
+            print(target)
+        }
+        
     }
     
     @objc func clickExprostSession() {
