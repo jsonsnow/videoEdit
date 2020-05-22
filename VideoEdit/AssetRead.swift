@@ -126,7 +126,7 @@ class AssetRead: NSObject {
         videoComposition.renderSize = natureSize
         var ratio: Float
         let xratio: Float = Float(targetSize!.width / natureSize.width)
-        let yratio: Float = Float(targetSize!.width / natureSize.height)
+        let yratio: Float = Float(targetSize!.height / natureSize.height)
         ratio = Float.minimum(xratio, yratio)
         
         let postWidth: Float = Float(natureSize.width) * ratio
