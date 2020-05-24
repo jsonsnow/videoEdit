@@ -11,6 +11,28 @@ import AVFoundation
 
 class VideoEdit {
     let composition = AVMutableComposition.init()
+    var outputURL: URL?
+    
+    func addAssetRead(_ assetRead: AssetRead) -> Void {
+        if assetRead.videoOutput != nil {
+            let videoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: .zero)
+            try? videoTrack?.insertTimeRange(assetRead.timeRange, of: assetRead.videoOutput!.videoTracks.first!, at: .zero)
+        }
+        if assetRead.audioOutput != nil {
+            let audioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: .zero)
+            try? audioTrack?.insertTimeRange(assetRead.timeRange, of: assetRead.audioOutput!.audioTracks.first!, at: .zero)
+        }
+    }
+    
+    func startComposition() -> Void {
+        let export = AVAssetExportSession.init(asset: composition, presetName: AVAssetExportPresetHighestQuality)
+        export?.shouldOptimizeForNetworkUse = true
+        export?.outputFileType = .mp4
+        export?.outputURL = outputURL
+        export?.exportAsynchronously {
+            print("\(export?.status.rawValue)")
+        }
+    }
     
     func test(url: String) -> Void {
         let startTime = 0;

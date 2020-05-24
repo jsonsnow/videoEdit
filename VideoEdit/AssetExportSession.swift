@@ -128,7 +128,7 @@ class AssetExportSession: NSObject {
                     handled = true
                     error = true
                 }
-                if !handled && self.reader.videoOutput! == output {
+                if self.reader.videoOutput != nil && !handled && self.reader.videoOutput! == output {
                     lastSamplePresentationTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer!)
                     lastSamplePresentationTime = CMTimeSubtract(lastSamplePresentationTime, timeRange.start)
                     self.progress = reader.duration == 0 ? 1 : Float(lastSamplePresentationTime.seconds/duration)
