@@ -20,7 +20,9 @@ class VideoEdit {
         }
         if assetRead.audioOutput != nil {
             let audioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: .zero)
-            try? audioTrack?.insertTimeRange(assetRead.timeRange, of: assetRead.audioOutput!.audioTracks.first!, at: .zero)
+            assetRead.audioOutput?.audioTracks.forEach {
+                try? audioTrack?.insertTimeRange(assetRead.timeRange, of: $0, at: .zero)
+            }
         }
     }
     
