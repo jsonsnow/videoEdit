@@ -26,7 +26,7 @@ class ImageTrack: NSObject {
     }
     
     func generateTrak(with completeHandler: @escaping AssetExportSession.ExportCompletionHandler) -> Void {
-        let write = AssetWrite.init(videoSettings: nil, audioSettings: nil, outPutFile: outputFile)
+        let write = AssetWrite.init(videoSettings: self.setting, audioSettings: nil, outPutFile: outputFile)
         write.configAssetWrite()
         write.addVideoInput()
         write.configPixelBufferAdaptor(by: setting!)
@@ -35,25 +35,25 @@ class ImageTrack: NSObject {
         var frame = 0
         write.videoInput?.requestMediaDataWhenReady(on: inputQueue, using: {
             while write.videoInput?.isReadyForMoreMediaData ?? false {
-                if self.images.count * self.seconsPerframe >= frame {
+                if self.images.count * self.seconsPerframe <= frame {
                     write.videoInput?.markAsFinished()
                     write.writer?.finishWriting {
                         DispatchQueue.main.async {
                             completeHandler()
                         }
                     }
+                    break
                 }
-                break
+                var buffer: CVPixelBuffer?
+                let index = frame/10
+                buffer = pixelByImage(self.images[index])
+                if write.videoPixelBufferAdaptor?.append(buffer!, withPresentationTime: CMTime.init(value: CMTimeValue(frame), timescale: 10)) ?? false {
+                    print("append success")
+                } else {
+                    print("append failed")
+                }
+                frame += 1
             }
-            var buffer: CVPixelBuffer?
-            let index = frame/10
-            buffer = pixelByImage(self.images[index])
-            if write.videoPixelBufferAdaptor?.append(buffer!, withPresentationTime: CMTime.init(value: CMTimeValue(frame), timescale: 10)) ?? false {
-                print("append success")
-            } else {
-                print("append failed")
-            }
-            frame += 1
         })
     }
 }
